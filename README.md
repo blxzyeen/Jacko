@@ -1,7 +1,7 @@
-<p align="center">
-    Jacko (0.1.0)
-</p>
----
-## things
--Automated bat file tool
----
+Automated CMD tool
+
+Download and run linkhere
+
+Once run the launcher will download the latest from linkhere
+
+And you're all set!
