@@ -65,7 +65,6 @@ echo Commands
 echo     [40;%secondarycolor%mipinfo[40;37m    - Displays local IP information
 echo     [40;%secondarycolor%mtasks[40;37m     - Displays running tasks
 echo     [40;%secondarycolor%mcmd[40;37m       - Opens CMD window
-echo     [40;%secondarycolor%mmrt[40;37m       - Opens mrt 
 echo     [40;%secondarycolor%mmrt[40;37m       - Opens mrt
 echo     [40;%secondarycolor%msfc[40;37m       - Runs system scan for file corruption
 echo     [40;%secondarycolor%mtmp[40;37m       - Clears temporary files
