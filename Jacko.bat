@@ -1,14 +1,10 @@
 @echo off
-title tempwindow_3
-echo msgbox "Welcome to the Jacko re-write!" > %tmp%\tmp.vbs
-wscript %tmp%\tmp.vbs
-del %tmp%\tmp.vb
 ::CONFIGURATION
 set automt=true
 set compatabilitychecker=false
 ::DO NOT EDIT PAST THIS POINT
 set mytime=%time%
-set jversion=Re-write 16/6/22
+set jversion=0.1.0
 set primarycolor=06
 set secondarycolor=93
 If %automt% == true goto :_fixtemp
@@ -61,17 +57,18 @@ cls
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[          ██████████████████████████                                         "
 echo.
 echo [40;37mInitialized at [40;%secondarycolor%m%mytime%[0m                                                                                                    
-echo [40;37mActive User: %USERNAME%
-echo Computer: %USERDOMAIN%
+echo Device:                    %USERDOMAIN%
+echo OS User:                   %USERNAME%
 systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"OS Manufacturer" /C:"OS Configuration" /C:"OS Build Type" /C:"Original Install Date" /C:"System Boot Time" /C:"System Manufacturer" /C:"System Model" /C:"System Type" /C:"Processor(s)" /C:"BIOS Version" /C:"Windows Directory" /C:"System Directory" /C:"Boot Device" /C:"System Locale" /C:"Input Locale" /C:"Total Physical Memory" /C:"Available Physical Memory" /C:"Virtual Memory: Max Size" /C:"Virtual Memory: Available" /C:"Virtual Memory: In Use" /C:"Domain" /C:"Network Card(s)"
 echo.                                                                                                                                                                                                                  
 echo Commands
 echo     [40;%secondarycolor%mipinfo[40;37m    - Displays local IP information
-echo     [40;%secondarycolor%mtasks[40;37m     - Displays running tasks (Buggy)
+echo     [40;%secondarycolor%mtasks[40;37m     - Displays running tasks
 echo     [40;%secondarycolor%mcmd[40;37m       - Opens CMD window
 echo     [40;%secondarycolor%mmrt[40;37m       - Opens mrt 
+echo     [40;%secondarycolor%mmrt[40;37m       - Opens mrt
 echo     [40;%secondarycolor%msfc[40;37m       - Runs system scan for file corruption
-echo     [40;%secondarycolor%mtmp[40;37m       - Clears temporary files (Already clears them on startup by default)
+echo     [40;%secondarycolor%mtmp[40;37m       - Clears temporary files
 echo.                                                                                                         
 set /p command= 
 if %command% == ipinfo goto :_ipinfo
