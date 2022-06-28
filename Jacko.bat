@@ -1,14 +1,10 @@
 @echo off
-title tempwindow_3
-echo msgbox "Welcome to the Jacko re-write!" > %tmp%\tmp.vbs
-wscript %tmp%\tmp.vbs
-del %tmp%\tmp.vb
 ::CONFIGURATION
 set automt=true
 set compatabilitychecker=false
 ::DO NOT EDIT PAST THIS POINT
 set mytime=%time%
-set jversion=Re-write 16/6/22
+set jversion=0.1
 set primarycolor=06
 set secondarycolor=93
 If %automt% == true goto :_fixtemp
@@ -51,7 +47,7 @@ cls
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[  █░░░░░░░░█▒▒███░░░░░░░░░█▒▒███░░░░░░░▒▒▒▒█                                 "
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[  █░░░░░░░████████░░░░░░░████████░░░░░░▒▒▒▒█  -------------------------------"
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒█   Tool     :  Jacko %jversion%  "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[  ██░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█░▒▒▒▒█   Author   :  Melon             "
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[  ██░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█░▒▒▒▒█   Author   :  blxzyeen          "
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[   █░░░░██░█░░░░░░░░░░░░░░░░░░░░░░░███▒▒▒▒▒█  -------------------------------"
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[   █▒▒░░░░█████░░░█░░░░██░░░██░░████░▒▒▒▒▒▒█                                 "
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[   ██▒▒░░░░░█████████████████████░░░▒▒▒▒▒▒██                                 "
