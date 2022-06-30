@@ -32,7 +32,7 @@ cd Jacko
 goto :B
 :B
 del %appdata%\Jacko\_jackotemp.bat
-Set "url=https://raw.githubusercontent.com/blxzyeen/Jacko/main/Jacko.bat"
+Set "url=https://raw.githubusercontent.com/blxzyeen/Jacko/main/Source/Jacko.bat"
 for %%# in (%url%) do ( set "File=%tmp%\%%~n#.txt" )
 Call :Download "%url%" "%File%"
 If exist "%File%" ( 
