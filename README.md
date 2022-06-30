@@ -6,5 +6,6 @@
 Download and run **Launcher.bat** you can download it <a href="here">here</a>!
 
 # About
-######Automated system utility written in batch
+Automated system utility written in batch
+
 Launcher runs latest release from github
