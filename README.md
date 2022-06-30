@@ -1,9 +1,10 @@
-Only tested on windows 10 (May not work on other winvers)
+![](https://github.com/blxzyeen/Jacko/blob/main/Assets/Jacko.png?raw=true)
 
-Automated CMD tool
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/blxzyeen/Jacko/main?style=flat-square)
 
-Download and run https://github.com/blxzyeen/Jacko/blob/main/Launcher.bat
+# Installation
+Download and run** Launcher.bat** you can download it <a href="here">here</a>!
 
-The launcher will download the latest from https://github.com/blxzyeen/Jacko/blob/main/Jacko.bat
-
-And you're all set!
+# About
+######Automated system utility written in batch
+Launcher runs latest release from github
