@@ -1,5 +1,5 @@
 @echo off
-Title Installer
+Title Launcher
 set _tempid=%random%
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
@@ -25,12 +25,12 @@ goto :A
     pushd "%CD%"
     CD /D "%~dp0"
 :A
-If exist %appdata%\Jacko goto :B
+If exist %appdata%\Jacko goto :exist
 cd %appdata%
 md Jacko
 cd Jacko
-goto :B
-:B
+goto :exist
+:exist
 del %appdata%\Jacko\_jackotemp.bat
 Set "url=https://raw.githubusercontent.com/blxzyeen/Jacko/main/Source/Jacko.bat"
 for %%# in (%url%) do ( set "File=%tmp%\%%~n#.txt" )
@@ -41,7 +41,6 @@ If exist "%File%" (
 )
 cls
 start %appdata%\Jacko\_jackotemp.bat
-echo Launching Jacko
 exit
 cls
 :::
