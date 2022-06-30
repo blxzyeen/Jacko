@@ -5,8 +5,8 @@ set compatabilitychecker=false
 ::DO NOT EDIT PAST THIS POINT
 set mytime=%time%
 set jversion=0.1.0
-set primarycolor=06
-set secondarycolor=93
+set primarycolor=0A
+set secondarycolor=92
 If %automt% == true goto :_fixtemp
 If %bypasswinver% == true goto :_main
 ::
@@ -34,27 +34,22 @@ goto :_main
 :_main
 @echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
 cls
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                  ████                                                       "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                 █░░███                                                      "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                 █░░████                                                     "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                  ███▒██     ████████                                        "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[        ████████     █▒█  ████▒▒▒▒▒▒████                                     "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[      ███▒▒▒▒▒▒████████████░░████▒▒▒▒▒███                                    "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[    ██▒▒▒▒░▒▒████░░██░░░░██░░░░░█▒▒▒▒▒▒▒███                                  "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[   ██▒▒░░░░▒██░░░░░█▒░░░░░██▒░░░░░░░▒▒▒▒▒▒█                                  "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[  ██▒░░░░░▒░░░░░░░░░▒░░░░░░░▒▒░░░░░░░▒▒▒▒▒██                                 "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[  █░░░░░░▒░░░██░░░░░░░░░░░░░██░░░░░░░░▒▒▒▒▒█                                 "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[  █░░░░░░░░█▒▒███░░░░░░░░░█▒▒███░░░░░░░▒▒▒▒█                                 "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[  █░░░░░░░████████░░░░░░░████████░░░░░░▒▒▒▒█  -------------------------------"
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[  █░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒█   Tool     :  Jacko %jversion%  "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[  ██░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█░▒▒▒▒█   Author   :  blxzyeen          "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[   █░░░░██░█░░░░░░░░░░░░░░░░░░░░░░░███▒▒▒▒▒█  -------------------------------"
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[   █▒▒░░░░█████░░░█░░░░██░░░██░░████░▒▒▒▒▒▒█                                 "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[   ██▒▒░░░░░█████████████████████░░░▒▒▒▒▒▒██                                 "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[    ██▒▒▒▒░░░░░██░░░███░░░██░░░█░░░▒▒▒▒▒▒██                                  "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[     ███▒▒▒░░░░░░░░░░░░░░░░░░░░░░▒▒▒▒█████                                   "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[       ███▒▒▒▒▒▒░░░░░░░░░░░░░▒▒▒▒▒▒████                                      "
-<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[          ██████████████████████████                                         "
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                      .,'
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                   .''.'
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                  .' .'
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                       .    ' . ~,'  `.~ . `    .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                  . '  .  '   .`:_. . _:'.   `  .  ` .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                .'   .'     ,     .'^'.    .     `.   `.
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[               .    .       .A.  .     . .A.       .    .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                          .d000b.      .d000b.
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[              '    '    .d0000000b.  .d0000000b.    `    `
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[             .    .      .      . db  .     .      .    .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                  d00b
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[               `    `?0o.  `     `     '    '  .o0P'    '
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                 .    `?00   ooooo.  .ooooo   00P' .   .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                  ` .   `?00000P ?0bd0P ?00000P' .' . '
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                        . . `~~   ~~~~  .~~'  . .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                            ~     - ~~ -    ~
 echo.
 echo [40;37mInitialized at [40;%secondarycolor%m%mytime%[0m                                                                                                    
 echo Device:                    %USERDOMAIN%
