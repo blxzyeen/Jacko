@@ -3,7 +3,7 @@
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/blxzyeen/Jacko/main?style=flat-square)
 
 # Installation
-Download and run** Launcher.bat** you can download it <a href="here">here</a>!
+Download and run **Launcher.bat** you can download it <a href="here">here</a>!
 
 # About
 ######Automated system utility written in batch
