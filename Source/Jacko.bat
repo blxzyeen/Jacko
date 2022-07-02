@@ -75,7 +75,7 @@ if %command% == cmd start cmd.exe & goto :_main
 if %command% == sfc sfc /scannow
 if %command% == mrt mrt /f
 if %command% == tmp goto :_fixtemp
-if %command% == jackover goto :_jackover
+if %command% == jacko goto :_jackover
 else
 cls 
 title Tab skip prevention
