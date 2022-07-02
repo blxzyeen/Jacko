@@ -4,7 +4,9 @@ set automt=true
 set compatabilitychecker=false
 ::DO NOT EDIT PAST THIS POINT
 set mytime=%time%
-set jversion=0.1.0
+set jversion=0.1.1
+set jrelease=1/7/2022
+set buildtype=public
 set primarycolor=0A
 set secondarycolor=92
 If %automt% == true goto :_fixtemp
@@ -63,6 +65,7 @@ echo     [40;%secondarycolor%mcmd[40;37m       - Opens CMD window
 echo     [40;%secondarycolor%mmrt[40;37m       - Opens mrt
 echo     [40;%secondarycolor%msfc[40;37m       - Runs system scan for file corruption
 echo     [40;%secondarycolor%mtmp[40;37m       - Clears temporary files
+echo     [40;%secondarycolor%mjackover[40;37m  - Information about jacko version
 echo.                                                                                                         
 set /p command= 
 if %command% == ipinfo goto :_ipinfo
@@ -72,6 +75,13 @@ if %command% == cmd start cmd.exe & goto :_main
 if %command% == sfc sfc /scannow
 if %command% == mrt mrt /f
 if %command% == tmp goto :_fixtemp
+if %command% == jackover goto :_jackover
+else
+cls 
+title Tab skip prevention
+echo Tab skip prevention
+timeout 1 >nul
+goto :_main
 
 
 :_fixtemp
@@ -104,3 +114,36 @@ ipconfig/all | find "DNS Suffix Search List"
 ipconfig/all | find "Physical Address"
 pause >nul
 goto :_main
+
+:_jackover
+@echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
+cls
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                      .,'
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                   .''.'
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                  .' .'
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                       .    ' . ~,'  `.~ . `    .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                  . '  .  '   .`:_. . _:'.   `  .  ` .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                .'   .'     ,     .'^'.    .     `.   `.
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[               .    .       .A.  .     . .A.       .    .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                          .d000b.      .d000b.
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[              '    '    .d0000000b.  .d0000000b.    `    `
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[             .    .      .      . db  .     .      .    .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                  d00b
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[               `    `?0o.  `     `     '    '  .o0P'    '
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                 .    `?00   ooooo.  .ooooo   00P' .   .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                  ` .   `?00000P ?0bd0P ?00000P' .' . '
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                        . . `~~   ~~~~  .~~'  . .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                            ~     - ~~ -    ~
+echo.
+echo Jacko version: %jversion% : %buildtype% stable
+echo Release date: %jrelease%
+echo.
+echo Update logs:
+echo ---------------------
+echo Added update logs
+echo ---------------------
+echo.
+echo.
+echo //press enter to return onto mainpage
+pause >nul
+goto _main
