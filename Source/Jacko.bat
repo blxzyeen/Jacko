@@ -10,29 +10,7 @@ set buildtype=public
 set primarycolor=0A
 set secondarycolor=92
 If %automt% == true goto :_fixtemp
-If %bypasswinver% == true goto :_main
 ::
-echo Checking winver
-::
-for /f "tokens=4-5 delims=. " %%i in ('ver') do set VERSION=%%i.%%j
-if "%version%" == "6.0" echo You are running an unsupported windows version! - WinVista
-if "%version%" == "6.1" echo You may experience issues whilst running the software - Win7 (The only fully supported winver is Win10)
-if "%version%" == "6.2" echo You are running an unsupported windows version! - Win8
-if "%version%" == "6.3" echo You are running an unsupported windows version! - Win8.1
-if "%version%" == "10.0" goto :Supported
-::
-timeout 1 >nul
-exit
-
-:Supported
-cls
-title Jacko - Supported winver!
-echo Your version of windows is [40;92mSupported[40;0m!
-%winver%
-timeout 1 >nul
-cls
-goto :_main
-
 :_main
 @echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
 cls
