@@ -65,7 +65,7 @@ echo     [40;%secondarycolor%mcmd[40;37m       - Opens CMD window
 echo     [40;%secondarycolor%mmrt[40;37m       - Opens mrt
 echo     [40;%secondarycolor%msfc[40;37m       - Runs system scan for file corruption
 echo     [40;%secondarycolor%mtmp[40;37m       - Clears temporary files
-echo     [40;%secondarycolor%mjackover[40;37m  - Information about jacko version
+echo     [40;%secondarycolor%mjacko[40;37m  - Information about jacko version
 echo.                                                                                                         
 set /p command= 
 if %command% == ipinfo goto :_ipinfo
@@ -140,7 +140,9 @@ echo Release date: %jrelease%
 echo.
 echo Update logs:
 echo ---------------------
-echo Added update logs
+echo.
+echo Added elevated check (Checks if Jacko is running as an administrator)
+echo.
 echo ---------------------
 echo.
 echo.
