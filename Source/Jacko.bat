@@ -1,14 +1,13 @@
 @echo off
 ::CONFIGURATION
 set automt=true
-set compatabilitychecker=false
+set primarycolor=0A
+set secondarycolor=92
 ::DO NOT EDIT PAST THIS POINT
 set mytime=%time%
 set jversion=0.1.1
 set jrelease=1/7/2022
 set buildtype=public
-set primarycolor=0A
-set secondarycolor=92
 If %automt% == true goto :_fixtemp
 ::
 :_main
