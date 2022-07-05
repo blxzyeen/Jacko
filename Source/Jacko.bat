@@ -63,9 +63,10 @@ echo     [40;%secondarycolor%mipinfo[40;37m    - Displays local IP information
 echo     [40;%secondarycolor%mtasks[40;37m     - Displays running tasks
 echo     [40;%secondarycolor%mcmd[40;37m       - Opens CMD window 
 echo     [40;%secondarycolor%mmrt[40;37m       - Opens mrt
+echo     [40;%secondarycolor%mtaskmgr[40;37m   - Opens Task manager
 echo     [40;%secondarycolor%msfc[40;37m       - Runs system scan for file corruption
 echo     [40;%secondarycolor%mtmp[40;37m       - Clears temporary files
-echo     [40;%secondarycolor%mjacko[40;37m  - Information about jacko version
+echo     [40;%secondarycolor%mjacko[40;37m     - Information about Jacko version
 echo.                                                                                                         
 set /p command= 
 if %command% == ipinfo goto :_ipinfo
