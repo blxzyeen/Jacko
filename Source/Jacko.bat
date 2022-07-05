@@ -53,11 +53,8 @@ cls
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                        . . `~~   ~~~~  .~~'  . .
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                            ~     - ~~ -    ~
 echo.
-echo [40;37mInitialized at [40;%secondarycolor%m%mytime%[0m                                                                                                    
-echo Device:                    %USERDOMAIN%
-echo OS User:                   %USERNAME%
-systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"OS Manufacturer" /C:"OS Configuration" /C:"OS Build Type" /C:"Original Install Date" /C:"System Boot Time" /C:"System Manufacturer" /C:"System Model" /C:"System Type" /C:"Processor(s)" /C:"BIOS Version" /C:"Windows Directory" /C:"System Directory" /C:"Boot Device" /C:"System Locale" /C:"Input Locale" /C:"Total Physical Memory" /C:"Available Physical Memory" /C:"Virtual Memory: Max Size" /C:"Virtual Memory: Available" /C:"Virtual Memory: In Use" /C:"Domain" /C:"Network Card(s)"
-echo.                                                                                                                                                                                                                  
+echo [40;37mInitialized at [40;%secondarycolor%m%mytime%[0m
+echo.
 echo Commands
 echo     [40;%secondarycolor%mipinfo[40;37m    - Displays local IP information
 echo     [40;%secondarycolor%mtasks[40;37m     - Displays running tasks
@@ -66,7 +63,8 @@ echo     [40;%secondarycolor%mmrt[40;37m       - Opens mrt
 echo     [40;%secondarycolor%mtaskmgr[40;37m   - Opens Task manager
 echo     [40;%secondarycolor%msfc[40;37m       - Runs system scan for file corruption
 echo     [40;%secondarycolor%mtmp[40;37m       - Clears temporary files
-echo     [40;%secondarycolor%mjacko[40;37m     - Information about Jacko version
+echo     [40;%secondarycolor%mjacko[40;37m     - Information about Jacko
+echo     [40;%secondarycolor%mdeviceinfo[40;37m- System Information
 echo.                                                                                                         
 set /p command= 
 if %command% == ipinfo goto :_ipinfo
@@ -77,6 +75,7 @@ if %command% == sfc sfc /scannow
 if %command% == mrt mrt /f
 if %command% == tmp goto :_fixtemp
 if %command% == jacko goto :_jackover
+if %command% == deviceinfo goto :_deviceinfo
 else
 cls 
 title Tab skip prevention
@@ -102,6 +101,7 @@ exit
 :_tasks
 echo Running tasks (Visible)
 tasklist
+echo //press enter to return onto mainpage
 pause >nul
 goto :_main
 
@@ -113,6 +113,7 @@ ipconfig/all | find "IPv4"
 ipconfig/all | find "Default Gateway"
 ipconfig/all | find "DNS Suffix Search List"
 ipconfig/all | find "Physical Address"
+echo //press enter to return onto mainpage
 pause >nul
 goto :_main
 
@@ -150,3 +151,38 @@ echo.
 echo //press enter to return onto mainpage
 pause >nul
 goto _main
+
+:_deviceinfo
+@echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
+cls
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                      .,'
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                   .''.'
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                  .' .'
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                       .    ' . ~,'  `.~ . `    .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                  . '  .  '   .`:_. . _:'.   `  .  ` .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                .'   .'     ,     .'^'.    .     `.   `.
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[               .    .       .A.  .     . .A.       .    .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                          .d000b.      .d000b.
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[              '    '    .d0000000b.  .d0000000b.    `    `
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[             .    .      .      . db  .     .      .    .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                  d00b
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[               `    `?0o.  `     `     '    '  .o0P'    '
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                 .    `?00   ooooo.  .ooooo   00P' .   .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                  ` .   `?00000P ?0bd0P ?00000P' .' . '
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                        . . `~~   ~~~~  .~~'  . .
+<con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                            ~     - ~~ -    ~
+echo.                                                                                                
+echo [40;37mDevice:                    %USERDOMAIN%
+echo OS User:                   %USERNAME%
+systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"OS Manufacturer" /C:"OS Configuration" /C:"OS Build Type" /C:"Original Install Date" /C:"System Boot Time" /C:"System Manufacturer" /C:"System Model" /C:"System Type" /C:"Processor(s)" /C:"BIOS Version" /C:"Windows Directory" /C:"System Directory" /C:"Boot Device" /C:"System Locale" /C:"Input Locale" /C:"Total Physical Memory" /C:"Available Physical Memory" /C:"Virtual Memory: Max Size" /C:"Virtual Memory: Available" /C:"Virtual Memory: In Use" /C:"Domain" /C:"Network Card(s)"
+echo.
+:_ipinfo
+echo Returned IP Information (Local)
+ipconfig/all | find "Subnet Mask"
+ipconfig/all | find "IPv4" 
+ipconfig/all | find "Default Gateway"
+ipconfig/all | find "DNS Suffix Search List"
+ipconfig/all | find "Physical Address"
+echo //press enter to return onto mainpage
+pause >nul
+goto :_main

@@ -1,4 +1,5 @@
 @echo off
+color A
 Title Launcher
 set _tempid=%random%
     IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
@@ -25,6 +26,11 @@ goto :A
     pushd "%CD%"
     CD /D "%~dp0"
 :A
+echo ###Launcher.bat###
+echo.
+echo Downloading and installing Jacko
+echo.
+echo ###Launcher.bat###
 If exist %appdata%\Jacko goto :exist
 cd %appdata%
 md Jacko
