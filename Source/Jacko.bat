@@ -11,8 +11,8 @@ set secondarycolor=92
 
 ::DO NOT EDIT PAST THIS POINT
 set mytime=%time%
-set jversion=0.1.1
-set jrelease=1/7/2022
+set jversion=0.1.2
+set jrelease=4/7/2022
 set buildtype=public
 goto :checkerv1
 :checkerv1
