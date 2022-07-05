@@ -1,14 +1,37 @@
 @echo off
-::CONFIGURATION
+::####CONFIGURATION####
+
 set automt=true
+
 set primarycolor=0A
+
 set secondarycolor=92
+
+::####CONFIGURATION####
+
 ::DO NOT EDIT PAST THIS POINT
 set mytime=%time%
 set jversion=0.1.1
 set jrelease=1/7/2022
 set buildtype=public
+goto :checkerv1
+:checkerv1
+openfiles >NUL 2>&1 
+if NOT %ERRORLEVEL% EQU 0 goto NotAdmin 
+title [Elevated]
 If %automt% == true goto :_fixtemp
+goto _main
+else exit
+:NotAdmin
+title [Not Elevated]
+echo msgbox "Jacko was closed, no this is not an error. Jacko requires administrator to run with proper functionality. Unfortunately you did not provide Jacko with elevated permissions." > %tmp%\tmp.vbs
+wscript %tmp%\tmp.vbs
+del %tmp%\tmp.vbs
+exit
+
+
+If %automt% == true goto :_fixtemp
+else exit
 ::
 :_main
 @echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
