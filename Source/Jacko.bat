@@ -90,8 +90,6 @@ REG add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System /v Disabl
 REG add HKCU\Software\Policies\Microsoft\Windows\System /v DisableCMD /t REG_DWORD /d 0 /f
 REG add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableRegistryTools /t REG_DWORD /d 0 /f
 REG add HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableRegistryTools /t REG_DWORD /d 0 /f
-REG add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v "DisableAntiSpyware" /t REG_DWORD /d "0" /f
-REG add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /t "REG_DWORD" /d "0" /f
 del "%tmp%\*.*" /s /q /f
     FOR /d %%p IN ("%tmp%\*.*") DO rmdir "%%p" /s /q
 cls
@@ -207,6 +205,8 @@ reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "DisableAnti
 reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "DisableAntiVirus" /t "REG_DWORD" /d "0" /f
 reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Features" /v "TamperProtection" /t "REG_DWORD" /d "5" /f
 reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "PUAProtection" /t "REG_DWORD" /d "1" /f
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v "DisableAntiSpyware" /t REG_DWORD /d "0" /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /t "REG_DWORD" /d "0" /f
 cls
 timeout 1 >nul
 goto :_main
