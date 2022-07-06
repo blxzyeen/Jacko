@@ -11,7 +11,7 @@ set secondarycolor=92
 
 ::DO NOT EDIT PAST THIS POINT
 set mytime=%time%
-set jversion=0.1.4
+set jversion=0.1.5
 set jrelease=6/7/2022
 set buildtype=public
 goto :elevatedcheck
@@ -73,19 +73,17 @@ echo     [40;%secondarycolor%mtmp[40;37m         - Clears temporary files
 echo     [40;%secondarycolor%mjacko[40;37m       - Information about Jacko
 echo.                                                                                                         
 set /p command= 
-if %command% == ipinfo goto :_ipinfo
-if %command% == tasks goto :_tasks
-if %command% == tmp goto :_fixtemp
-if %command% == jacko goto :_jackover
-if %command% == deviceinfo goto :_deviceinfo
-if %command% == taskmgr start taskmgr.exe & goto :_main
-if %command% == powershell start powershell.exe & goto :_main
-if %command% == cmd start cmd.exe & goto :_main
-if %command% == sfc sfc /scannow
-if %command% == mrt mrt /f
-if %command% == windef goto :_windef
-else
-exit
+if %command% == ipinfo goto :_ipinfo else goto :_main
+if %command% == tasks goto :_tasks else goto :_main
+if %command% == tmp goto :_fixtemp else goto :_main 
+if %command% == jacko goto :_jackover else goto :_main
+if %command% == deviceinfo goto :_deviceinfo else goto :_main
+if %command% == taskmgr start taskmgr.exe & goto :_main else goto :_main
+if %command% == powershell start powershell.exe & goto :_main else goto :_main
+if %command% == cmd start cmd.exe & goto :_main else goto :_main
+if %command% == sfc sfc /scannow else goto :_main
+if %command% == mrt mrt /f else goto :_main
+if %command% == windef goto :_windef else goto :_main
 
 
 :_fixtemp
@@ -145,8 +143,6 @@ echo.
 echo Update logs:
 echo ---------------------
 echo.
-echo Feature Update
-echo Graphical Update
 echo General Bugfix
 echo.
 echo ---------------------
