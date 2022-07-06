@@ -18,7 +18,8 @@ set esc=
 set mytime=%time%
 set jversion=0.1.5
 set jrelease=6/7/2022
-set buildtype=public
+set buildtype=Github
+::
 goto :elevatedcheck
 :elevatedcheck
 openfiles >NUL 2>&1 
@@ -138,7 +139,7 @@ cls
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                        . . `~~   ~~~~  .~~'  . .
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                            ~     - ~~ -    ~
 echo.
-echo Jacko version: %jversion% : %buildtype% stable
+echo Jacko version: %jversion% : %buildtype%
 echo Release date: %jrelease%
 echo.
 echo Update logs:
