@@ -11,7 +11,7 @@ set secondarycolor=92
 
 ::DO NOT EDIT PAST THIS POINT
 set mytime=%time%
-set jversion=0.1.3
+set jversion=0.1.4
 set jrelease=6/7/2022
 set buildtype=public
 goto :elevatedcheck
@@ -55,18 +55,22 @@ cls
 echo.
 echo [40;37mInitialized at [40;%secondarycolor%m%mytime%[0m
 echo.
-echo Commands
+echo Applications
+echo     [40;%secondarycolor%mcmd[40;37m         - Opens CMD window  (Elevated)
+echo     [40;%secondarycolor%mtaskmgr[40;37m     - Opens Task manager (Elevated)
+echo     [40;%secondarycolor%mpowershell[40;37m  - Opens Powershell (Elevated)
+echo     [40;%secondarycolor%mmrt[40;37m         - Opens mrt (Elevated)
+echo.
+echo System
 echo     [40;%secondarycolor%mdeviceinfo[40;37m  - Displays System Information
 echo     [40;%secondarycolor%mipinfo[40;37m      - Displays local IP information
 echo     [40;%secondarycolor%mtasks[40;37m       - Displays running tasks
-echo     [40;%secondarycolor%mcmd[40;37m         - Opens CMD window  (Elevated)
-echo     [40;%secondarycolor%mmrt[40;37m         - Opens mrt
-echo     [40;%secondarycolor%mtaskmgr[40;37m     - Opens Task manager (Elevated)
-echo     [40;%secondarycolor%mpowershell[40;37m  - Opens Powershell (Elevated)
 echo     [40;%secondarycolor%msfc[40;37m         - Runs sfc scan (Windows Resource Protection)
+echo     [40;%secondarycolor%mwindef[40;37m      - Check windows defender in various ways.
+echo.
+echo Commands
 echo     [40;%secondarycolor%mtmp[40;37m         - Clears temporary files
 echo     [40;%secondarycolor%mjacko[40;37m       - Information about Jacko
-echo     [40;%secondarycolor%mwindef[40;37m      - Check windows defender in various ways.
 echo.                                                                                                         
 set /p command= 
 if %command% == ipinfo goto :_ipinfo
@@ -141,7 +145,8 @@ echo.
 echo Update logs:
 echo ---------------------
 echo.
-echo Added windef
+echo Feature Update
+echo Graphical Update
 echo General Bugfix
 echo.
 echo ---------------------
