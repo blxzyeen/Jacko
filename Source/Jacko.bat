@@ -3,13 +3,18 @@
 
 set automt=true
 
-set primarycolor=0A
+set primarycolor=0e
 
-set secondarycolor=92
+set secondarycolor=93
+
+set thirdcolor=0
+
+set fourthcolor=0
 
 ::####CONFIGURATION####
 
 ::DO NOT EDIT PAST THIS POINT
+set esc=
 set mytime=%time%
 set jversion=0.1.5
 set jrelease=6/7/2022
@@ -21,17 +26,12 @@ if NOT %ERRORLEVEL% EQU 0 goto :notelevated
 title [Elevated]
 If %automt% == true goto :_fixtemp
 goto _main
-else exit
 :notelevated
 title [Not Elevated]
 echo msgbox "Jacko was closed, no this is not an error. Jacko requires administrator to run with proper functionality. Unfortunately you did not provide Jacko with elevated permissions." > %tmp%\tmp.vbs
 wscript %tmp%\tmp.vbs
 del %tmp%\tmp.vbs
 exit
-
-
-If %automt% == true goto :_fixtemp
-else exit
 ::
 :_main
 @echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
@@ -53,24 +53,25 @@ cls
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                        . . `~~   ~~~~  .~~'  . .
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                            ~     - ~~ -    ~
 echo.
-echo [40;37mInitialized at [40;%secondarycolor%m%mytime%[0m
+echo %esc%[%thirdcolor%;%fourthcolor%mInitialized at %esc%[%thirdcolor%;%secondarycolor%m%mytime%%esc%[%thirdcolor%;0m
 echo.
-echo Applications
-echo     [40;%secondarycolor%mcmd[40;37m         - Opens CMD window  (Elevated)
-echo     [40;%secondarycolor%mtaskmgr[40;37m     - Opens Task manager (Elevated)
-echo     [40;%secondarycolor%mpowershell[40;37m  - Opens Powershell (Elevated)
-echo     [40;%secondarycolor%mmrt[40;37m         - Opens mrt (Elevated)
+echo %esc%[%thirdcolor%mApplications
+echo     %esc%[%thirdcolor%;%secondarycolor%mcmd%esc%[%thirdcolor%;%fourthcolor%m         - Opens CMD window  (Elevated)
+echo     %esc%[%thirdcolor%;%secondarycolor%mpowershell%esc%[%thirdcolor%;%fourthcolor%m  - Opens Powershell (Elevated)
+echo     %esc%[%thirdcolor%;%secondarycolor%mtaskmgr%esc%[%thirdcolor%;%fourthcolor%m     - Opens Task manager (Elevated)
+echo     %esc%[%thirdcolor%;%secondarycolor%mcontrol%esc%[%thirdcolor%;%fourthcolor%m     - Opens Control Panel
+echo     %esc%[%thirdcolor%;%secondarycolor%mmrt%esc%[%thirdcolor%;%fourthcolor%m         - Opens mrt (Outdated)
 echo.
 echo System
-echo     [40;%secondarycolor%mdeviceinfo[40;37m  - Displays System Information
-echo     [40;%secondarycolor%mipinfo[40;37m      - Displays local IP information
-echo     [40;%secondarycolor%mtasks[40;37m       - Displays running tasks
-echo     [40;%secondarycolor%msfc[40;37m         - Runs sfc scan (Windows Resource Protection)
-echo     [40;%secondarycolor%mwindef[40;37m      - Check windows defender in various ways.
+echo     %esc%[%thirdcolor%;%secondarycolor%mdeviceinfo%esc%[%thirdcolor%;%fourthcolor%m  - Displays System Information
+echo     %esc%[%thirdcolor%;%secondarycolor%mipinfo%esc%[%thirdcolor%;%fourthcolor%m      - Displays local IP information
+echo     %esc%[%thirdcolor%;%secondarycolor%mtasks%esc%[%thirdcolor%;%fourthcolor%m       - Displays running tasks
+echo     %esc%[%thirdcolor%;%secondarycolor%msfc%esc%[%thirdcolor%;%fourthcolor%m         - Runs sfc scan (Windows Resource Protection)
+echo     %esc%[%thirdcolor%;%secondarycolor%mwindef%esc%[%thirdcolor%;%fourthcolor%m      - Check windows defender in various ways.
 echo.
 echo Commands
-echo     [40;%secondarycolor%mtmp[40;37m         - Clears temporary files
-echo     [40;%secondarycolor%mjacko[40;37m       - Information about Jacko
+echo     %esc%[%thirdcolor%;%secondarycolor%mtmp%esc%[%thirdcolor%;%fourthcolor%m         - Clears temporary files
+echo     %esc%[%thirdcolor%;%secondarycolor%mjacko%esc%[%thirdcolor%;%fourthcolor%m       - Information about Jacko
 echo.                                                                                                         
 set /p command= 
 if %command% == ipinfo goto :_ipinfo else goto :_main
@@ -172,7 +173,7 @@ cls
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                        . . `~~   ~~~~  .~~'  . .
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                            ~     - ~~ -    ~
 echo.                                                                                                
-echo [40;37mDevice:                    %USERDOMAIN%
+echo %esc%[%thirdcolor%;%fourthcolor%mDevice:                    %USERDOMAIN%
 echo OS User:                   %USERNAME%
 systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"OS Manufacturer" /C:"OS Configuration" /C:"OS Build Type" /C:"Original Install Date" /C:"System Boot Time" /C:"System Manufacturer" /C:"System Model" /C:"System Type" /C:"Processor(s)" /C:"BIOS Version" /C:"Windows Directory" /C:"System Directory" /C:"Boot Device" /C:"System Locale" /C:"Input Locale" /C:"Total Physical Memory" /C:"Available Physical Memory" /C:"Virtual Memory: Max Size" /C:"Virtual Memory: Available" /C:"Virtual Memory: In Use" /C:"Domain" /C:"Network Card(s)"
 echo.
