@@ -11,18 +11,18 @@ set secondarycolor=92
 
 ::DO NOT EDIT PAST THIS POINT
 set mytime=%time%
-set jversion=0.1.2
-set jrelease=4/7/2022
+set jversion=0.1.3
+set jrelease=6/7/2022
 set buildtype=public
-goto :checkerv1
-:checkerv1
+goto :elevatedcheck
+:elevatedcheck
 openfiles >NUL 2>&1 
-if NOT %ERRORLEVEL% EQU 0 goto NotAdmin 
+if NOT %ERRORLEVEL% EQU 0 goto :notelevated
 title [Elevated]
 If %automt% == true goto :_fixtemp
 goto _main
 else exit
-:NotAdmin
+:notelevated
 title [Not Elevated]
 echo msgbox "Jacko was closed, no this is not an error. Jacko requires administrator to run with proper functionality. Unfortunately you did not provide Jacko with elevated permissions." > %tmp%\tmp.vbs
 wscript %tmp%\tmp.vbs
@@ -66,18 +66,20 @@ echo     [40;%secondarycolor%mpowershell[40;37m  - Opens Powershell (Elevated)
 echo     [40;%secondarycolor%msfc[40;37m         - Runs sfc scan (Windows Resource Protection)
 echo     [40;%secondarycolor%mtmp[40;37m         - Clears temporary files
 echo     [40;%secondarycolor%mjacko[40;37m       - Information about Jacko
+echo     [40;%secondarycolor%mwindef[40;37m      - Check windows defender in various ways.
 echo.                                                                                                         
 set /p command= 
 if %command% == ipinfo goto :_ipinfo
 if %command% == tasks goto :_tasks
+if %command% == tmp goto :_fixtemp
+if %command% == jacko goto :_jackover
+if %command% == deviceinfo goto :_deviceinfo
 if %command% == taskmgr start taskmgr.exe & goto :_main
 if %command% == powershell start powershell.exe & goto :_main
 if %command% == cmd start cmd.exe & goto :_main
 if %command% == sfc sfc /scannow
 if %command% == mrt mrt /f
-if %command% == tmp goto :_fixtemp
-if %command% == jacko goto :_jackover
-if %command% == deviceinfo goto :_deviceinfo
+if %command% == windef goto :_windef
 else
 exit
 
@@ -141,7 +143,8 @@ echo.
 echo Update logs:
 echo ---------------------
 echo.
-echo Added elevated check (Checks if Jacko is running as an administrator)
+echo Added windef
+echo General Bugfix
 echo.
 echo ---------------------
 echo.
@@ -183,4 +186,27 @@ ipconfig/all | find "DNS Suffix Search List"
 ipconfig/all | find "Physical Address"
 echo //press enter to return onto mainpage
 pause >nul
+goto :_main
+:_windef
+color b
+cls
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Real-Time Protection"
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "IsServiceRunning"
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "DisableAntiSpyware"
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "DisableAntiVirus"
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "PUAProtection"
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Features" /v "TamperProtection"
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Exclusions\Extensions"
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Exclusions\IpAddresses"
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Exclusions\Paths"
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Exclusions\Processes"
+reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Exclusions\TemporaryPaths"
+pause >nul
+echo Beginning Repair
+reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "DisableAntiSpyware" /t "REG_DWORD" /d "0" /f
+reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "DisableAntiVirus" /t "REG_DWORD" /d "0" /f
+reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Features" /v "TamperProtection" /t "REG_DWORD" /d "5" /f
+reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "PUAProtection" /t "REG_DWORD" /d "1" /f
+cls
+timeout 1 >nul
 goto :_main
