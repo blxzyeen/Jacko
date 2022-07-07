@@ -203,23 +203,23 @@ goto :_main
 :_windef
 color b
 cls
-reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Real-Time Protection"
-reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "IsServiceRunning"
-reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "DisableAntiSpyware"
-reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "DisableAntiVirus"
-reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "PUAProtection"
-reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Features" /v "TamperProtection"
-reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Exclusions\Extensions"
-reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Exclusions\IpAddresses"
-reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Exclusions\Paths"
-reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Exclusions\Processes"
-reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Exclusions\TemporaryPaths"
+reg query "HKLM\Software\Microsoft\Windows Defender\Real-Time Protection"
+reg query "HKLM\Software\Microsoft\Windows Defender" /v "IsServiceRunning"
+reg query "HKLM\Software\Microsoft\Windows Defender" /v "DisableAntiSpyware"
+reg query "HKLM\Software\Microsoft\Windows Defender" /v "DisableAntiVirus"
+reg query "HKLM\Software\Microsoft\Windows Defender" /v "PUAProtection"
+reg query "HKLM\Software\Microsoft\Windows Defender\Features" /v "TamperProtection"
+reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\Extensions"
+reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\IpAddresses"
+reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\Paths"
+reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\Processes"
+reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\TemporaryPaths"
 pause >nul
 echo Beginning Repair
-reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "DisableAntiSpyware" /t "REG_DWORD" /d "0" /f
-reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "DisableAntiVirus" /t "REG_DWORD" /d "0" /f
-reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender\Features" /v "TamperProtection" /t "REG_DWORD" /d "5" /f
-reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Defender" /v "PUAProtection" /t "REG_DWORD" /d "1" /f
+reg add "HKLM\Software\Microsoft\Windows Defender" /v "DisableAntiSpyware" /t "REG_DWORD" /d "0" /f
+reg add "HKLM\Software\Microsoft\Windows Defender" /v "DisableAntiVirus" /t "REG_DWORD" /d "0" /f
+reg add "HKLM\Software\Microsoft\Windows Defender\Features" /v "TamperProtection" /t "REG_DWORD" /d "5" /f
+reg add "HKLM\Software\Microsoft\Windows Defender" /v "PUAProtection" /t "REG_DWORD" /d "1" /f
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v "DisableAntiSpyware" /t REG_DWORD /d "0" /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpyware" /t "REG_DWORD" /d "0" /f
 cls
