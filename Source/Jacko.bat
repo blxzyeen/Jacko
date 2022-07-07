@@ -85,6 +85,7 @@ if %command% == jacko goto :_jackover else goto :_main
 if %command% == deviceinfo goto :_deviceinfo else goto :_main
 if %command% == taskmgr start taskmgr.exe & goto :_main else goto :_main
 if %command% == powershell start powershell.exe & goto :_main else goto :_main
+if %command% == control start control & goto :_main else goto :_main
 if %command% == cmd start cmd.exe & goto :_main else goto :_main
 if %command% == sfc sfc /scannow else goto :_main
 if %command% == mrt mrt /f else goto :_main
