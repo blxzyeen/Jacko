@@ -19,6 +19,7 @@ set mytime=%time%
 set jversion=0.1.5
 set jrelease=6/7/2022
 set buildtype=Github
+set tracer=notexist
 goto :elevatedcheck
 
 ::Elevated Check
@@ -37,7 +38,9 @@ exit
 
 ::Main Page
 :_main
-reg add "HKLM\Software\Jacko\tracer" /f
+reg query "HKLM\Software\Jacko\tracer"
+if %errorlevel%==0 set tracer=exist
+if %tracer% == notexist reg add "HKLM\Software\Jacko\tracer" /f
 @echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
 cls
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                      .,'
