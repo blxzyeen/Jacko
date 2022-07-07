@@ -37,7 +37,7 @@ exit
 
 ::Main Page
 :_main
-reg add "HKLM\Software\Jacko\tracer"
+reg add "HKLM\Software\Jacko\tracer" /f
 @echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
 cls
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                      .,'
