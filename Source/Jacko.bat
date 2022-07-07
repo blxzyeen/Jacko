@@ -13,14 +13,15 @@ set fourthcolor=0
 
 ::####CONFIGURATION####
 
-::DO NOT EDIT PAST THIS POINT
+::Variables
 set esc=
 set mytime=%time%
 set jversion=0.1.5
 set jrelease=6/7/2022
 set buildtype=Github
-::
 goto :elevatedcheck
+
+::Elevated Check
 :elevatedcheck
 openfiles >NUL 2>&1 
 if NOT %ERRORLEVEL% EQU 0 goto :notelevated
@@ -33,9 +34,8 @@ echo msgbox "Jacko was closed, no this is not an error. Jacko requires administr
 wscript %tmp%\tmp.vbs
 del %tmp%\tmp.vbs
 exit
-::
 
-::
+::Main Page
 :_main
 @echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
 cls
@@ -75,7 +75,8 @@ echo.
 echo Commands
 echo     %esc%[%thirdcolor%;%secondarycolor%mtmp%esc%[%thirdcolor%;%fourthcolor%m         - Clears temporary files
 echo     %esc%[%thirdcolor%;%secondarycolor%mjacko%esc%[%thirdcolor%;%fourthcolor%m       - Information about Jacko
-echo.                                                                                                     
+echo.    
+::Commands for main page                                                                                                 
 set /p command= 
 if %command% == ipinfo goto :_ipinfo else goto :_main
 if %command% == tasks goto :_tasks else goto :_main
@@ -88,9 +89,8 @@ if %command% == cmd start cmd.exe & goto :_main else goto :_main
 if %command% == sfc sfc /scannow else goto :_main
 if %command% == mrt mrt /f else goto :_main
 if %command% == windef goto :_windef else goto :_main
-::
 
-::
+::General Fixes
 :_fixtemp
 REG add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System /v DisableTaskMgr /t REG_DWORD /d 0 /f
 REG add HKCU\Software\Policies\Microsoft\Windows\System /v DisableCMD /t REG_DWORD /d 0 /f
@@ -101,18 +101,16 @@ del "%tmp%\*.*" /s /q /f
 cls
 goto :_main
 exit
-::
 
-::
+::Tasklist
 :_tasks
 echo Running tasks (Visible)
 tasklist
 echo //press enter to return onto mainpage
 pause >nul
 goto :_main
-::
 
-::
+::IP information
 :_ipinfo
 echo Returned IP Information (Local)
 ipconfig/all | find "Subnet Mask"
@@ -123,9 +121,8 @@ ipconfig/all | find "Physical Address"
 echo //press enter to return onto mainpage
 pause >nul
 goto :_main
-::
 
-::
+::Information About Jacko
 :_jackover
 @echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
 cls
@@ -160,9 +157,8 @@ echo.
 echo //press enter to return onto mainpage
 pause >nul
 goto _main
-::
 
-::
+::Device Information
 :_deviceinfo
 @echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
 cls
@@ -197,9 +193,8 @@ ipconfig/all | find "Physical Address"
 echo //press enter to return onto mainpage
 pause >nul
 goto :_main
-::
 
-::
+::Windows Defender check and repair
 :_windef
 color b
 cls
@@ -225,4 +220,4 @@ reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows Defender" /v "DisableAntiSpywa
 cls
 timeout 1 >nul
 goto :_main
-::
+::End
