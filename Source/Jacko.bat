@@ -106,7 +106,10 @@ exit
 :_tasks
 echo Running tasks (Visible)
 tasklist
+echo Type the PID to kill the process
 echo //press enter to return onto mainpage
+set /p pid=
+taskkill /pid %pid% /f
 pause >nul
 goto :_main
 
