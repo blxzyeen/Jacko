@@ -16,7 +16,7 @@ set fourthcolor=0
 ::Variables
 set esc=
 set mytime=%time%
-set jversion=0.1.5
+set jversion=0.1.6
 set jrelease=6/7/2022
 set buildtype=Github
 set tracer=notexist
@@ -27,8 +27,7 @@ goto :elevatedcheck
 openfiles >NUL 2>&1 
 if NOT %ERRORLEVEL% EQU 0 goto :notelevated
 title [Elevated]
-If %automt% == true goto :_fixtemp
-goto _main
+goto _antibot
 :notelevated
 title [Not Elevated]
 echo msgbox "Jacko was closed, no this is not an error. Jacko requires administrator to run with proper functionality. Unfortunately you did not provide Jacko with elevated permissions." > %tmp%\tmp.vbs
@@ -36,11 +35,22 @@ wscript %tmp%\tmp.vbs
 del %tmp%\tmp.vbs
 exit
 
+::AntiBot
+:_antibot
+Title Phoenix AntiBot
+set humanverification=%random%
+echo [91mPhoenix AntiBot[0m
+echo Please type %humanverification% to verify that you're human
+echo.
+set /p userinput= 
+if %userinput% == %humanverification% goto :_premain
+exit
+:_premain
+If %automt% == true goto :_fixtemp
+goto _main
+
 ::Main Page
 :_main
-reg query "HKLM\Software\Jacko\tracer"
-if %errorlevel%==0 set tracer=exist
-if %tracer% == notexist reg add "HKLM\Software\Jacko\tracer" /f
 @echo off & color %primarycolor% & "%__APPDIR__%chcp.com" 65001 >nul & title <nul & title Jacko : %jversion% : %USERNAME% && "%__APPDIR__%mode.com" 105,75
 cls
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                                      .,'
@@ -157,7 +167,7 @@ echo.
 echo Update logs:
 echo ---------------------
 echo.
-echo Source Cleanup
+echo Added Phoenix AntiBot
 echo.
 echo ---------------------
 echo.
