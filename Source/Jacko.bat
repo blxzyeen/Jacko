@@ -71,6 +71,7 @@ cls
 <con: call "%windir%\system32\cmd.exe" /u/s/c" echo[                            ~     - ~~ -    ~
 echo.
 echo %esc%[%thirdcolor%;%fourthcolor%mInitialized at %esc%[%thirdcolor%;%secondarycolor%m%mytime%%esc%[%thirdcolor%;0m
+echo Jacko updates are postponed. Re-Write in progress.
 echo.
 echo %esc%[%thirdcolor%mApplications
 echo     %esc%[%thirdcolor%;%secondarycolor%mcmd%esc%[%thirdcolor%;%fourthcolor%m         - Opens CMD window  (Elevated)
